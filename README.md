@@ -25,5 +25,5 @@ print(logout)
 
 ```
 <p align="left">
-	<img width="600" height="100" src="/static/img/example.png">
+	<img width="600" height="100" src="/static/img/example.jpg">
 </p>
