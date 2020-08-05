@@ -1,9 +1,3 @@
-# Smartomato_api
-
-## For now works only auth!
-
-## Use it!
-```python
 from smartomato import SmartTomatoAuth
 
 LOGIN = ""
@@ -22,8 +16,3 @@ print(status)
 
 logout = auth.logout()
 print(logout)
-
-```
-<p align="left">
-	<img width="600" height="100" src="/static/img/example.png">
-</p>
