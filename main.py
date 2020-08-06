@@ -1,18 +1,15 @@
-from smartomato import SmartTomatoAuth
+from smartomato import SmartTomato
 
 LOGIN = ""
 PASSWORD = ""
 
-auth = SmartTomatoAuth(LOGIN, PASSWORD)
+smartomato = SmartTomato(json_session_save=True, json_session_patch="./jsons/session.json")
+smartomato.login(LOGIN, PASSWORD)
 
-login = auth.login()
-print(login)
-
-is_login = auth.is_login()
-print(is_login)
-
-status = auth.status()
-print(status)
-
-logout = auth.logout()
-print(logout)
+try:
+    pass
+    r = smartomato.get.organizations()
+    print(r)
+finally:
+    print("\nLogout..")
+    smartomato.logout()

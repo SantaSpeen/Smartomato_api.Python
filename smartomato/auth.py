@@ -2,19 +2,29 @@ import traceback
 
 import requests
 
-from JsonHandler import JsonHandler
-JSON_SESSION = "./jsons/session.json"
-json_session = JsonHandler(patch=JSON_SESSION, file=True)
+from local_libs import JsonHandler
+from smartomato.Exceptions import AuthorizationFailed
+
+json_session: JsonHandler
 
 
 class SmartTomatoAuth:
 
     AUTH_URL = "http://smartomato.ru/api/session"
 
-    def __init__(self, login: str, password: str):
+    def __init__(self,
+                 login: str,
+                 password: str,
+                 session=requests.Session(),
+                 save_session: bool = False,
+                 session_patch: str = "./jsons/session.json"):
+        global json_session
+        if save_session:
+            json_session = JsonHandler(patch=session_patch, file=True)
         self._login = login
         self._password = password
-        self.S = requests.Session()
+        self.S = session
+        self.save_session = save_session
         self.login_form = f"?login={login}&password={password}"
 
         self.have_token = False
@@ -25,11 +35,12 @@ class SmartTomatoAuth:
             return out.json()
         except:
             print(traceback.format_exc())
-            return {}
+            raise AuthorizationFailed("Incorrect login or password..")
 
     def login(self) -> dict:
         out = self.out_handler(self.S.post(self.AUTH_URL + self.login_form))
-        json_session.save(out)
+        if self.save_session:
+            json_session.save(out)
         if out.get("meta"):
             self.S.headers.update({"Authorization": f'Token token="{out["meta"]["token"]}"'})
             self.have_token = True
@@ -50,6 +61,7 @@ class SmartTomatoAuth:
     def logout(self) -> bool:
         if self.have_token:
             self.S.delete(self.AUTH_URL)
-            json_session.save({})
+            if self.save_session:
+                json_session.save({})
             return True
         return False

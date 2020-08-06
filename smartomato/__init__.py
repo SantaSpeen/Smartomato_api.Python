@@ -1,1 +1,1 @@
-from .auth import SmartTomatoAuth
+from .api import SmartTomato
