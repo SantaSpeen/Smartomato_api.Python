@@ -59,3 +59,11 @@ finally:
     print("\nLogout..")
     smartomato.logout()
 ```
+
+## Links!
+
+- [Python](python.org)
+
+- [Link to this project](https://github.com/SantaSpeen/Smartomato_api.python)
+
+- [Author (vk)](https://vk.com/id370926160)
