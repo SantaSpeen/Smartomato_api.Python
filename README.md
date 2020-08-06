@@ -1,35 +1,37 @@
 # Smartomato_api
 
+Language: RU, [EN](README_en.md)
+
 ## Use it!
 
-* Import:
+* Импортируем:
 ```python
 from smartomato import SmartTomato
 ```
-* Init api:
+* Инициализируем api:
 ```python
 smartomato = SmartTomato(json_session_save=True, json_session_patch="./jsons/session.json")
 ```
-| Params            | Type | Default | Necessarily  |  Description |
-| ------            | ---- | ------- | :----------: | ------------- |
-| json_session_save | bool | False   | 	    🔴      | Save or not save session file |
-| json_session_patch| str  | "./session.json" | if json_session_save is True - ✔️ | File to save session |
+| Параметр          | Тип  | По умолчанию | Обязательный параметр  | Описание |
+| ------            | ---- | ------------ | :--------------------: | -------- |
+| json_session_save | bool | False        | 	    🔴                | Сохранить ли файл сессии?  |
+| json_session_patch| str  | "./session.json" | if json_session_save is True - ✔️ | Как и куда сохранить файл |
 
-* Login
+* Перед началом работ нужно залогинится (!)
 ```python
 smartomato.login(login, password)
 ```
-| Params            | Type | Default | Necessarily  |  Description |
-| ------            | :--: | :-----: | :----------: | ------------ |
-| login		    | str  | -	     | ✔️	    | Your login    |
-| password	    | str  | - 	     | ✔️	    | Your password |
+| Параметр          | Тип  | По умолчанию | Обязательный параметр  | Описание |
+| ------            | ---- | ------------ | :--------------------: | -------- |
+| login		           | str  | -	           | ✔️	                    | Your login    |
+| password	         | str  | - 	          | ✔️	                    | Your password |
 
-* Write your code:
-  * Use `try` - `finally`:
-    * In `try` do your code
-    * In `finally` do `smartomato.logout()`
+* Теперь пишите свой код:
+  * Используйте `try` - `finally`:
+    * В `try` пишите свой код
+    * В `finally` должно быть `smartomato.logout()`
     
-## Example: 
+## Пример: 
 
 ```python
 from smartomato import SmartTomato
