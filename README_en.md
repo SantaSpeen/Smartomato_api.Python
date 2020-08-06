@@ -1,5 +1,7 @@
 # Smartomato_api
 
+Language: [RU] (README.md), EN
+
 ## Use it!
 
 * Import:
@@ -29,6 +31,13 @@ smartomato.login(login, password)
     * In `try` do your code
     * In `finally` do `smartomato.logout()`
     
+* How to write code?
+  * Let's see example: `smartomato.get.organizations(id = 1, action = "publish")`:
+    * `smartomato` - class with api
+    * `get` - Request type
+    * `organizations` - Resource
+    * `(id = 1, action = "publish")` - URL generate like in [docs](http://developer.smartomato.ru/api) - /:resource/:id/:action, i.e reserved parameters only - id, action
+    
 ## Example: 
 
 ```python
@@ -44,6 +53,8 @@ try:
     # [Your's code]
      r = smartomato.get.organizations()
     print(r)
+     r = smartomato.put.organizations(id = 1, name = "organization name")
+     print(r)
 finally:
     print("\nLogout..")
     smartomato.logout()
