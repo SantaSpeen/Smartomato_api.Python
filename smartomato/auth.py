@@ -2,8 +2,8 @@ import traceback
 
 import requests
 
-from local_libs import JsonHandler
-from smartomato.Exceptions import AuthorizationFailed
+from . import JsonHandler
+from .Exceptions import AuthorizationFailed
 
 json_session: JsonHandler
 
