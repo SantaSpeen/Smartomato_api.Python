@@ -52,7 +52,9 @@ smartomato.login(LOGIN, PASSWORD)
 try:
     # [Your's code]
      r = smartomato.get.organizations(id = 1, action = "publish")
-    print(r)
+     print(r)
+     r = smartomato.put.organizations(id = 1, name = "organization name")
+     print(r)
 finally:
     print("\nLogout..")
     smartomato.logout()
