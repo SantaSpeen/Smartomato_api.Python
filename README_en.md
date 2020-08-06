@@ -1,6 +1,6 @@
 # Smartomato_api
 
-Language: [RU] (README.md), EN
+Language: [RU] (/README.md), EN
 
 ## Use it!
 
