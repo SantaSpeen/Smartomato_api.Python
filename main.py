@@ -7,7 +7,6 @@ smartomato = SmartTomato(json_session_save=True, json_session_patch="./jsons/ses
 smartomato.login(LOGIN, PASSWORD)
 
 try:
-    pass
     r = smartomato.get.organizations()
     print(r)
 finally:
