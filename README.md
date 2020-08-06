@@ -36,7 +36,7 @@ smartomato.login(login, password)
     * `smartomato` - Это класс с api
     * `get` - Это тип запроса
     * `organizations` - Ресурс
-    * `(id = 1, action = "publish")` - Ссыка запроса генерируется согласно документации - /:resource/:id/:action, т.е. зарезервированые параметры только - id, action
+    * `(id = 1, action = "publish")` - Ссыка запроса генерируется согласно [документации](http://developer.smartomato.ru/api) - /:resource/:id/:action, т.е. зарезервированые параметры только - id, action
     
 ## Пример: 
 
