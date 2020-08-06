@@ -31,6 +31,13 @@ smartomato.login(login, password)
     * В `try` пишите свой код
     * В `finally` должно быть `smartomato.logout()`
     
+* Как писать код?
+  * Рассмотрим запрос в примере: `smartomato.get.organizations(id = 1, action = "publish")`:
+    * `smartomato` - Это класс с api
+    * `get` - Это тип запроса
+    * `organizations` - Ресурс
+    * `(id = 1, action = "publish")` - Ссыка запроса генерируется согласно документации - /:resource/:id/:action, т.е. зарезервированые параметры только - id, action
+    
 ## Пример: 
 
 ```python
@@ -44,7 +51,7 @@ smartomato.login(LOGIN, PASSWORD)
 
 try:
     # [Your's code]
-     r = smartomato.get.organizations()
+     r = smartomato.get.organizations(id = 1, action = "publish")
     print(r)
 finally:
     print("\nLogout..")
